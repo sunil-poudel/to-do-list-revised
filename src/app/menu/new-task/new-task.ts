@@ -16,7 +16,7 @@ export class NewTask {
 
 
   onClickCancel() {
-
+    this.tasksService.displayAddMenu.set(false);
   }
 
   onSubmit() {
