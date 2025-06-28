@@ -9,6 +9,7 @@ export class TasksServices{
   private httpClient = inject(HttpClient);
 
   currentTaskId = signal<number>(-1);
+  displayAddMenu = signal(false);
 
   getAllTasks(){
     return this.fetchData('http://localhost:8080/apis/tasks', 'sorry! could not load tasks!');

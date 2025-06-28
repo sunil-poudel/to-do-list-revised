@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output, inject} from '@angular/core';
+import {TasksServices} from '../shared/tasks.services';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,9 @@ import {Component, EventEmitter, Output, inject} from '@angular/core';
   styleUrl: './menu.css'
 })
 export class Menu {
-  onClickAdd(){
+  private tasksService = inject(TasksServices);
 
+  onClickAdd(){
+    this.tasksService.displayAddMenu.set(true);
   }
 }
