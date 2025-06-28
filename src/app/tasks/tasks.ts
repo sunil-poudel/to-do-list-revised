@@ -21,5 +21,9 @@ export class Tasks implements OnInit{
     });
   }
 
+  onClickTasks(id: number){
+
+  }
+
 
 }

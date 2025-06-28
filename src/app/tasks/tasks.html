@@ -5,12 +5,11 @@
   <div id="tasks_list">
     @if(tasks()){
       @for(task of tasks(); track task.id){
-        <div class="tasks">{{task.title}}</div>
+        <div class="tasks" (click) = "onClickTasks(task.id)">{{task.title}}</div>
       }
     } @else{
       <div class="tasks">Add tasks from below!</div>
     }
-
 
   </div>
 </div>
