@@ -17,6 +17,8 @@ export class Menu {
     this.tasksService.displayAddMenu.set(true);
   }
   onClickEdit(){
-    this.tasksService.displayEditMenu.set(true);
+    if(this.tasksService.currentTaskId()!= -1) {
+      this.tasksService.displayEditMenu.set(true);
+    }
   }
 }

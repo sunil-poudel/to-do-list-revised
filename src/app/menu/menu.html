@@ -11,3 +11,6 @@
 @if(tasksService.displayAddMenu()){
   <app-new-task/>
 }
+@if(tasksService.displayEditMenu()){
+  <app-new-task enteredTitle="{{tasksService.currentTask().title}}" enteredDate="{{tasksService.currentTask().date}}" enteredDescription="{{tasksService.currentTask().description}}"></app-new-task>
+}
