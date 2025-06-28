@@ -29,6 +29,9 @@ export class TasksServices{
       catchError(error=> throwError(()=> new Error(fetchError)))
     );
   }
+  private addTask(url: string, taskData: TaskData){
+    return this.httpClient.post(url, taskData);
+  }
 
 
 
