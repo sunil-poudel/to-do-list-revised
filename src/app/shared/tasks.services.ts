@@ -8,6 +8,8 @@ export class TasksServices{
   private tasks = signal<Task[]>([]);
   private httpClient = inject(HttpClient);
 
+  currentTaskId = signal<number>(-1);
+
   getAllTasks(){
     return this.fetchData('http://localhost:8080/apis/tasks', 'sorry! could not load tasks!');
   }
