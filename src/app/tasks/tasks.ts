@@ -13,28 +13,4 @@ import {NgClass} from '@angular/common';
 export class Tasks {
   protected tasksServices = inject(TasksServices);
 
-  getArchivedStatus(){
-    return this.tasksServices.getArchivedStatus();
-  }
-
-  getAllTasks(){
-    return this.tasksServices.getTasks();
-  }
-
-
-  setCurrentTask(id: number){
-    this.tasksServices.setCurrentTask(id);
-    // console.log("set current task of id: "+id);
-  }
-
-  selectedTask: any = null;
-
-  selectTask(task: any) {
-    this.selectedTask = task;
-  }
-
-
-  onClick() {
-    console.log("Clicked id: "+this.tasksServices.getCurrentTask())
-  }
 }
