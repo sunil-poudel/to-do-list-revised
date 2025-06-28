@@ -1,0 +1,16 @@
+<div id="tasks_div">
+  <div id="tasks_heading">
+      <h1>My tasks</h1>
+  </div>
+  <div id="tasks_list">
+    @if(tasks()){
+      @for(task of tasks(); track task.id){
+        <div class="tasks">{{task.title}}</div>
+      }
+    } @else{
+      <div class="tasks">Add tasks from below!</div>
+    }
+
+
+  </div>
+</div>
