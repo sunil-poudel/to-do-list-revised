@@ -1,11 +1,11 @@
 import {TaskData, TaskValue} from './shared';
 import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {catchError, throwError} from 'rxjs';
+import {catchError, tap, throwError} from 'rxjs';
 
 @Injectable({providedIn: "root"})
 export class TasksServices{
-  private tasks = signal<TaskValue[]>([]);
+  tasks = signal<TaskValue[]>([]);
   private httpClient = inject(HttpClient);
 
   currentTaskId = signal<number>(-1);
@@ -18,7 +18,11 @@ export class TasksServices{
     return this.fetchDataById(`http://localhost:8080/apis/tasks/${id}`, 'sorry! could not load selected task!');
   }
   addNewTask(taskData: TaskData){
-    return this.addTask('http://localhost:8080/apis/tasks', taskData);
+    return this.addTask('http://localhost:8080/apis/tasks', taskData).pipe(
+      tap({
+        next: value=> this.tasks.update((task)=> [...task, value])
+      })
+    );
   }
 
   private fetchData(url: string, fetchError: string){
