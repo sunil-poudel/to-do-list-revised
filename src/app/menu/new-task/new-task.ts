@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, effect, EventEmitter, inject, Input, Output, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {TaskData} from '../../shared/shared';
+import {TasksServices} from '../../shared/tasks.services';
 
 @Component({
   selector: 'app-new-task',
@@ -11,5 +12,14 @@ import {TaskData} from '../../shared/shared';
   styleUrl: './new-task.css'
 })
 export class NewTask {
+  private tasksService = inject(TasksServices);
 
+
+  onClickCancel() {
+
+  }
+
+  onSubmit() {
+
+  }
 }
