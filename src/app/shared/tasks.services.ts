@@ -28,7 +28,18 @@ export class TasksServices{
     );
   }
   editTheTask(taskValue: TaskValue){
-    return this.editTask('http://localhost:8080/apis/tasks', taskValue);
+    return this.editTask('http://localhost:8080/apis/tasks', taskValue).pipe(
+      tap({
+        next: value => {
+          let tasks = [...this.tasks()];
+          tasks = tasks.map(
+            task=>
+              task.id===value.id?value:task
+          );
+          this.tasks.set(tasks);
+        }
+      })
+    );
   }
 
   private fetchData(url: string, fetchError: string){
