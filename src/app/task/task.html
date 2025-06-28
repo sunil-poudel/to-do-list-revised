@@ -1,0 +1,16 @@
+<div  id="task_details">
+  <div id="task_heading">
+    <h1>Task Information</h1>
+  </div>
+  <div id="task" >
+    @if(task){
+      <div class="taskTitle">{{task?.title}}</div>
+      <div class="taskDate">{{task?.date}}</div>
+      <hr/>
+      <div class="taskDescription">{{task?.description}}</div>
+    }
+    @else{
+      <div id="noTasks">Click on the task to the left to view it.</div>
+    }
+  </div>
+</div>
