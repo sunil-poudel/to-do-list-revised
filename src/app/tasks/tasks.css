@@ -1,0 +1,42 @@
+div#tasks_list{
+  height: 300px;
+  /*width: 25%;*/
+  /*border: 2px solid black;*/
+  overflow: scroll;
+}
+div.tasks{
+  border: 1px solid black;
+  margin: 10px 10px;
+  font-size: 20pt;
+  text-align: center;
+  padding: 1px;
+  border-radius: 5px;
+}
+div.tasks:hover{
+  background-color: green;
+  color: white;
+}
+div.tasks.selected{
+  background-color: blue;
+  color: white;
+}
+div.tasks.selectedArchive{
+  background-color: red;
+  color: white;
+}
+@media(max-width: 336px){
+  div#tasks_list{
+    margin-top: 60px;
+  }
+
+}
+@media(min-width: 511px){
+  div#tasks_list{
+    margin-top: 60px;
+  }
+}
+@media(min-width: 516px){
+  div#tasks_list{
+    margin-top: 10px;
+  }
+}

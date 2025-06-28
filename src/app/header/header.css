@@ -1,0 +1,26 @@
+div#logo_header > img{
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+}
+
+header{
+  background-image: linear-gradient(purple, blue);
+  width: 50%;
+  height: 120px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+@media (max-width: 580px){
+  header{
+    height: 150px;
+  }
+}
+@media(max-width: 1007px){
+  header{
+    width:100%;
+  }
+}

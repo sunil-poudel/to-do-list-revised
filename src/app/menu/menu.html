@@ -1,0 +1,51 @@
+<div id="menu_div">
+  @if(!getArchivedStatus()){
+    <div class="menu" (click)="onClickAdd()">
+      <p>Add</p>
+      <img src="assets/text-document-add-icon.png" alt="add notes"/>
+    </div>
+    <div class="menu" (click)="onClickEdit()">
+      <p>Edit</p>
+      <img src="assets/edit-document-icon.png" alt="edit notes"/>
+    </div>
+    <div class="menu" (click)="onClickMarkComplete()">
+      <p>Mark complete</p>
+      <img src="assets/double-tick-icon.png" alt="mark complete"/>
+    </div>
+  } @else if(getArchivedStatus()){
+    <div class="menu" (click)="onClickMarkIncomplete()">
+      <p>Mark incomplete</p>
+      <img src="assets/delete-file-icon.png" alt="mark incomplete"/>
+    </div>
+  }
+
+  @if(!getArchivedStatus()){
+    <div class="menu" (click)="onClickDelete()">
+      <p>Delete</p>
+      <img src="assets/hospital-trash-can-icon.png" alt="delete"/>
+    </div>
+    <div class="menu" (click)="onClickArchives()">
+      <p>Archives</p>
+      <img src="assets/archive-files-icon.png" alt="archives"/>
+    </div>
+  } @else{
+    <div class="menu" (click)="onClickBack()">
+      <p>Back to tasks</p>
+      <img src="assets/back-logo.png" alt="back logo"/>
+    </div>
+  }
+</div>
+@if(displayFlag){
+  <app-new-task (displayFlag) = getDisplayFlag($event) (submittedTask)="getSubmittedTask($event)"></app-new-task>
+}
+@if(editDisplayFlag){
+  <app-new-task
+    enteredTitle = "{{getCurrentTask()?.title}}"
+    enteredDate = "{{getCurrentTask()?.date}}"
+    enteredDescription = "{{getCurrentTask()?.description}}"
+    (editDisplayFlag) = getEditDisplayFlag($event)
+    (submittedTask)="getSubmittedTask($event)"
+  ></app-new-task>
+}
+
+

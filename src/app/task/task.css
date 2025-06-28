@@ -1,0 +1,44 @@
+div#task{
+  box-sizing: border-box;
+  border: 1px black solid;
+  border-radius: 5px;
+  height: 300px;
+  overflow: scroll;
+  text-align: center;
+  font-family: "Edu VIC WA NT Hand", cursive;
+
+}
+div.taskTitle{
+  margin-top: 3%;
+  font-weight: bold;
+  font-size: 18pt;
+}
+div#task > hr{
+  width: 80%;
+}
+div.taskDescription{
+  margin-top: 3%;
+  padding: 1rem;
+  font-size: 18pt;
+}
+
+div#noTasks{
+  padding: 30px;
+  font-size: 20pt;
+  margin: 20px auto;
+  text-align: center;
+  font-family: "Special Elite", system-ui;
+}
+div#task_heading{
+  text-align: right;
+}
+
+
+
+@media(max-width: 515px){
+  div#task{
+    margin-top: 60px;
+  }
+
+}
+

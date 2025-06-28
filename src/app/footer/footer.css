@@ -1,0 +1,12 @@
+hr{
+  width: 50%;
+}
+div#footer_div{
+  text-align: center;
+  margin-top: 10px;
+}
+@media(max-width: 1007px){
+  hr{
+    width:100%;
+  }
+}

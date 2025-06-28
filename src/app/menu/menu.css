@@ -1,0 +1,31 @@
+div#menu_div{
+  display: flex;
+  /*border: black solid 3px;*/
+  width: 50%;
+  margin: 10px auto;
+  gap: 20px;
+  justify-content: center;
+}
+div.menu{
+  border: 1px black solid;
+  width: 15%;
+  text-align: center;
+  font-size: 15pt;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.menu:hover{
+  scale: 1.2;
+  border: 1px blue solid;
+  background-color: purple;
+  color: white;
+}
+div.menu > img{
+  height: 30px;
+  width: auto;
+}
+@media(max-width: 1007px){
+  div#menu_div{
+    width:100%;
+  }
+}

@@ -1,0 +1,12 @@
+div#tasks_and_task{
+  display: grid;
+  width: 50%;
+  grid-template-columns: 25% 75%;
+  margin: 0 auto;
+  grid-template-areas: "tasks task";
+}
+@media(max-width: 1007px){
+  div#tasks_and_task{
+    width:100%;
+  }
+}
