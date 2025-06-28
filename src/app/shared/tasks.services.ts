@@ -24,6 +24,9 @@ export class TasksServices{
       })
     );
   }
+  editTheTask(taskValue: TaskValue){
+    return this.editTask('http://localhost:8080/apis/tasks', taskValue);
+  }
 
   private fetchData(url: string, fetchError: string){
     return this.httpClient.get<TaskValue[]>(url).pipe(
