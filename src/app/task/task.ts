@@ -11,7 +11,8 @@ import {TaskValue} from '../shared/shared';
 export class Task implements OnInit{
   protected tasksServices = inject(TasksServices);
   currentTaskId = this.tasksServices.currentTaskId();
-  task?: TaskValue;
+  // task?: TaskValue;
+  task = this.tasksServices.currentTask;
 
   constructor() {
     effect(() => {
@@ -22,7 +23,7 @@ export class Task implements OnInit{
         this.tasksServices.getTaskById(this.currentTaskId).subscribe(
           {
             next: task => {
-              this.task = task;
+              this.task.set(task);
               // console.log(this.task);
             }
           }
