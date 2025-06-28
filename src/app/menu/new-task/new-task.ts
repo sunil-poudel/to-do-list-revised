@@ -24,6 +24,12 @@ export class NewTask {
   }
 
   onSubmit() {
-
+    if(this.enteredTitle!=''){
+      const taskData: TaskData = {title: this.enteredTitle, date: this.enteredDate, description: this.enteredDescription};
+      this.tasksService.addNewTask(taskData).subscribe({
+        next: task => console.log('added task: ', task)
+      });
+    }
+    this.tasksService.displayAddMenu.set(false);
   }
 }

@@ -17,7 +17,9 @@ export class TasksServices{
   getTaskById(id: number){
     return this.fetchDataById(`http://localhost:8080/apis/tasks/${id}`, 'sorry! could not load selected task!');
   }
-
+  addNewTask(taskData: TaskData){
+    return this.addTask('http://localhost:8080/apis/tasks', taskData);
+  }
 
   private fetchData(url: string, fetchError: string){
     return this.httpClient.get<TaskValue[]>(url).pipe(
@@ -30,7 +32,7 @@ export class TasksServices{
     );
   }
   private addTask(url: string, taskData: TaskData){
-    return this.httpClient.post(url, taskData);
+    return this.httpClient.post<TaskValue>(url, taskData);
   }
 
 
