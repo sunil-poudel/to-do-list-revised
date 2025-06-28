@@ -5,7 +5,7 @@ import {catchError, tap, throwError} from 'rxjs';
 
 @Injectable({providedIn: "root"})
 export class TasksServices{
-  tasks = signal<TaskValue[]>([]);
+  tasks = signal<TaskData[]>([]);
   private httpClient = inject(HttpClient);
 
   currentTaskId = signal<number>(-1);
@@ -36,7 +36,10 @@ export class TasksServices{
     );
   }
   private addTask(url: string, taskData: TaskData){
-    return this.httpClient.post<TaskValue>(url, taskData);
+    return this.httpClient.post<TaskData>(url, taskData);
+  }
+  private editTask(url: string, taskValue: TaskValue){
+    return this.httpClient.put<TaskValue>(url, taskValue);
   }
 
 
