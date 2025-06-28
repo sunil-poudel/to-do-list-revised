@@ -19,9 +19,6 @@ export class Tasks implements OnInit{
 
   onClickTasks(id: number){
     this.tasksServices.currentTaskId.set(id);
-    this.tasksServices.getTaskById(id).subscribe({
-      next: value => console.log(value)
-    })
   }
 
 

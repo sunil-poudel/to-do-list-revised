@@ -14,7 +14,7 @@ export class TasksServices{
     return this.fetchData('http://localhost:8080/apis/tasks', 'sorry! could not load tasks!');
   }
   getTaskById(id: number){
-    return this.fetchData(`http://localhost:8080/apis/tasks/${id}`, 'sorry! could not load selected task!');
+    return this.fetchDataById(`http://localhost:8080/apis/tasks/${id}`, 'sorry! could not load selected task!');
   }
 
 
@@ -23,6 +23,12 @@ export class TasksServices{
       catchError(error=> throwError(()=> new Error(fetchError)))
     );
   }
+  private fetchDataById(url: string, fetchError: string){
+    return this.httpClient.get<Task>(url).pipe(
+      catchError(error=> throwError(()=> new Error(fetchError)))
+    );
+  }
+
 
 
 }
