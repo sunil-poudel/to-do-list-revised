@@ -1,6 +1,6 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {TasksServices} from '../shared/tasks.services';
-import {Task} from '../shared/shared'
+import {TaskValue} from '../shared/shared'
 
 @Component({
   selector: 'app-tasks',
@@ -9,7 +9,7 @@ import {Task} from '../shared/shared'
 })
 export class Tasks implements OnInit{
   protected tasksServices = inject(TasksServices);
-  tasks = signal<Task[]>([]);
+  tasks = signal<TaskValue[]>([]);
 
   ngOnInit(): void {
     this.tasksServices.getAllTasks().subscribe({

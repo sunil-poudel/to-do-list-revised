@@ -1,11 +1,11 @@
-import {TaskData, Task} from './shared';
+import {TaskData, TaskValue} from './shared';
 import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, throwError} from 'rxjs';
 
 @Injectable({providedIn: "root"})
 export class TasksServices{
-  private tasks = signal<Task[]>([]);
+  private tasks = signal<TaskValue[]>([]);
   private httpClient = inject(HttpClient);
 
   currentTaskId = signal<number>(-1);
@@ -19,12 +19,12 @@ export class TasksServices{
 
 
   private fetchData(url: string, fetchError: string){
-    return this.httpClient.get<Task[]>(url).pipe(
+    return this.httpClient.get<TaskValue[]>(url).pipe(
       catchError(error=> throwError(()=> new Error(fetchError)))
     );
   }
   private fetchDataById(url: string, fetchError: string){
-    return this.httpClient.get<Task>(url).pipe(
+    return this.httpClient.get<TaskValue>(url).pipe(
       catchError(error=> throwError(()=> new Error(fetchError)))
     );
   }

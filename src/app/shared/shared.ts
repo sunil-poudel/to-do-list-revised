@@ -3,7 +3,7 @@ export interface TaskData{
   date: string;
   description: string;
 }
-export interface Task{
+export interface TaskValue {
   id: number;
   title: string;
   date: string;
