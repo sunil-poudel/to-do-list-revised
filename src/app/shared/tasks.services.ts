@@ -12,6 +12,7 @@ export class TasksServices{
   currentTaskId = signal<number>(-1);
   displayAddMenu = signal(false);
   displayEditMenu = signal(false);
+  currentTask = signal<TaskValue>({id: -1, title: '',date: '', description: ''});
 
   getAllTasks(){
     return this.fetchData('http://localhost:8080/apis/tasks', 'sorry! could not load tasks!');

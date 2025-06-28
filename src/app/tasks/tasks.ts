@@ -19,6 +19,10 @@ export class Tasks implements OnInit{
 
   onClickTasks(id: number){
     this.tasksServices.currentTaskId.set(id);
+    const current = this.tasksServices.tasks().find(task=>task.id ==id);
+    if(current) {
+      this.tasksServices.currentTask.set(current);
+    }
   }
 
 
