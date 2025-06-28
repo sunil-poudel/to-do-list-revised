@@ -37,6 +37,7 @@ export class TasksServices{
               task.id===value.id?value:task
           );
           this.tasks.set(tasks);
+          this.currentTask.set(value);
         }
       })
     );
