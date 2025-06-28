@@ -50,5 +50,6 @@ export class NewTask {
       this.tasksService.displayEditMenu.set(false);
     }
 
+
   }
 }
