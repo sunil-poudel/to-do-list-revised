@@ -2,14 +2,16 @@ import {TaskData, TaskValue} from './shared';
 import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, tap, throwError} from 'rxjs';
+import {Tasks} from '../tasks/tasks';
 
 @Injectable({providedIn: "root"})
 export class TasksServices{
-  tasks = signal<TaskData[]>([]);
+  tasks = signal<TaskValue[]>([]);
   private httpClient = inject(HttpClient);
 
   currentTaskId = signal<number>(-1);
   displayAddMenu = signal(false);
+  displayEditMenu = signal(false);
 
   getAllTasks(){
     return this.fetchData('http://localhost:8080/apis/tasks', 'sorry! could not load tasks!');
@@ -39,7 +41,7 @@ export class TasksServices{
     );
   }
   private addTask(url: string, taskData: TaskData){
-    return this.httpClient.post<TaskData>(url, taskData);
+    return this.httpClient.post<TaskValue>(url, taskData);
   }
   private editTask(url: string, taskValue: TaskValue){
     return this.httpClient.put<TaskValue>(url, taskValue);
