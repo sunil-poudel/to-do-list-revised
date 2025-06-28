@@ -12,6 +12,10 @@ import {TasksServices} from '../../shared/tasks.services';
   styleUrl: './new-task.css'
 })
 export class NewTask {
+  @Input() enteredTitle:string='';
+  @Input() enteredDate:string='';
+  @Input() enteredDescription:string='';
+
   private tasksService = inject(TasksServices);
 
 
