@@ -16,4 +16,7 @@ export class Menu {
   onClickAdd(){
     this.tasksService.displayAddMenu.set(true);
   }
+  onClickEdit(){
+
+  }
 }
