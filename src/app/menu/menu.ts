@@ -26,4 +26,8 @@ export class Menu {
       this.tasksService.deleteTask(this.tasksService.currentTaskId()).subscribe();
     }
   }
+
+  onClickArchives() {
+
+  }
 }

@@ -1,4 +1,5 @@
-<div id="menu_div">
+@if (!tasksService.archivedStatus()) {
+  <div id="menu_div">
     <div class="menu" (click)="onClickAdd()">
       <p>Add</p>
       <img src="assets/text-document-add-icon.png" alt="add notes"/>
@@ -7,14 +8,22 @@
       <p>Edit</p>
       <img src="assets/edit-document-icon.png" alt="edit notes"/>
     </div>
-  <div class="menu" (click)="onClickDelete()">
-    <p>Delete</p>
-    <img src="assets/hospital-trash-can-icon.png" alt="delete"/>
+    <div class="menu" (click)="onClickDelete()">
+      <p>Delete</p>
+      <img src="assets/hospital-trash-can-icon.png" alt="delete"/>
+    </div>
+    <div class="menu" (click)="onClickArchives()">
+      <p>Archives</p>
+      <img src="assets/archive-files-icon.png" alt="archives"/>
+    </div>
   </div>
-</div>
-@if(tasksService.displayAddMenu()){
-  <app-new-task/>
-}
-@if(tasksService.displayEditMenu()){
-  <app-new-task enteredTitle="{{tasksService.currentTask().title}}" enteredDate="{{tasksService.currentTask().date}}" enteredDescription="{{tasksService.currentTask().description}}"></app-new-task>
+  @if (tasksService.displayAddMenu()) {
+    <app-new-task/>
+  }
+  @if (tasksService.displayEditMenu()) {
+    <app-new-task enteredTitle="{{tasksService.currentTask().title}}" enteredDate="{{tasksService.currentTask().date}}"
+                  enteredDescription="{{tasksService.currentTask().description}}"></app-new-task>
+  }
+} @else{
+
 }
