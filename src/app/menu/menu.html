@@ -7,6 +7,10 @@
       <p>Edit</p>
       <img src="assets/edit-document-icon.png" alt="edit notes"/>
     </div>
+  <div class="menu" (click)="onClickDelete()">
+    <p>Delete</p>
+    <img src="assets/hospital-trash-can-icon.png" alt="delete"/>
+  </div>
 </div>
 @if(tasksService.displayAddMenu()){
   <app-new-task/>
