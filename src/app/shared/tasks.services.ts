@@ -59,6 +59,9 @@ export class TasksServices{
   private editTask(url: string, taskValue: TaskValue){
     return this.httpClient.put<TaskValue>(url, taskValue);
   }
+  private removeTask(url: string, id: number){
+    return this.httpClient.delete(url+"/"+id);
+  }
 
 
 
