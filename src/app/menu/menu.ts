@@ -21,9 +21,9 @@ export class Menu {
       this.tasksService.displayEditMenu.set(true);
     }
   }
-  onClickDelete(id: number) {
+  onClickDelete() {
     if(this.tasksService.currentTaskId()!= -1){
-      this.tasksService.deleteTask(id);
+      this.tasksService.deleteTask(this.tasksService.currentTaskId()).subscribe();
     }
   }
 }
