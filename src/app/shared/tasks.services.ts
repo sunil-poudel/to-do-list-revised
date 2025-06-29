@@ -42,6 +42,9 @@ export class TasksServices{
       })
     );
   }
+  deleteTask(id: number){
+    this.removeTask('http://localhost:8080/apis/tasks/', id);
+  }
 
   private fetchData(url: string, fetchError: string){
     return this.httpClient.get<TaskValue[]>(url).pipe(
@@ -60,7 +63,7 @@ export class TasksServices{
     return this.httpClient.put<TaskValue>(url, taskValue);
   }
   private removeTask(url: string, id: number){
-    return this.httpClient.delete(url+"/"+id);
+    return this.httpClient.delete(url+id);
   }
 
 
