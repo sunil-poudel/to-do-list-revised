@@ -25,6 +25,5 @@ export class Menu {
     if(this.tasksService.currentTaskId()!= -1){
       this.tasksService.deleteTask(this.tasksService.currentTaskId()).subscribe();
     }
-    this.tasksService.currentTaskId.set(-1);
   }
 }

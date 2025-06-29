@@ -47,6 +47,8 @@ export class TasksServices{
       tap({
         next: (taskValue)=>{
           this.tasks.set(this.tasks().filter((t)=> t.id != taskValue.id));
+          this.currentTaskId.set(-1);
+          this.currentTask.set({id: -1, title:'', date: '', description: ''});
         }
 
       })
