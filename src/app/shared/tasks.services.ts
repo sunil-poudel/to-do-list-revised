@@ -43,7 +43,14 @@ export class TasksServices{
     );
   }
   deleteTask(id: number){
-    return this.removeTask('http://localhost:8080/apis/tasks/', id);
+    return this.removeTask('http://localhost:8080/apis/tasks/', id).pipe(
+      tap({
+        next: (taskValue)=>{
+          this.tasks.set(this.tasks().filter((t)=> t.id != taskValue.id));
+        }
+
+      })
+    );
   }
 
   private fetchData(url: string, fetchError: string){
@@ -63,7 +70,7 @@ export class TasksServices{
     return this.httpClient.put<TaskValue>(url, taskValue);
   }
   private removeTask(url: string, id: number){
-    return this.httpClient.delete(url+id);
+    return this.httpClient.delete<TaskValue>(url+id);
   }
 
 
