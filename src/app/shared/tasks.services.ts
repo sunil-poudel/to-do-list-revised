@@ -43,7 +43,7 @@ export class TasksServices{
     );
   }
   deleteTask(id: number){
-    this.removeTask('http://localhost:8080/apis/tasks/', id);
+    return this.removeTask('http://localhost:8080/apis/tasks/', id);
   }
 
   private fetchData(url: string, fetchError: string){
