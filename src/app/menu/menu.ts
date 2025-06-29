@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output, inject} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {TasksServices} from '../shared/tasks.services';
 import {NewTask} from './new-task/new-task';
 

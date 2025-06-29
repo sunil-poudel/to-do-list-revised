@@ -2,7 +2,6 @@ import {TaskData, TaskValue} from './shared';
 import {inject, Injectable, signal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, tap, throwError} from 'rxjs';
-import {Tasks} from '../tasks/tasks';
 
 @Injectable({providedIn: "root"})
 export class TasksServices{
@@ -12,6 +11,7 @@ export class TasksServices{
   currentTaskId = signal<number>(-1);
   displayAddMenu = signal(false);
   displayEditMenu = signal(false);
+  archivedStatus = signal(false);
   currentTask = signal<TaskValue>({id: -1, title: '',date: '', description: ''});
 
   getAllTasks(){

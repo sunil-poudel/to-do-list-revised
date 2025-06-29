@@ -1,15 +1,20 @@
-<div id="tasks_div">
-  <div id="tasks_heading">
+@if(!tasksServices.archivedStatus()){
+  <div id="tasks_div">
+    <div id="tasks_heading">
       <h1>My tasks</h1>
-  </div>
-  <div id="tasks_list">
-    @if(tasks().length!=0){
-      @for(task of tasks(); track task.id){
-        <div class="tasks" (click) = "onClickTasks(task.id)">{{task.title}}</div>
+    </div>
+    <div id="tasks_list">
+      @if(tasks().length!=0){
+        @for(task of tasks(); track task.id){
+          <div class="tasks" (click) = "onClickTasks(task.id)">{{task.title}}</div>
+        }
+      } @else{
+        <div class="tasks">Add tasks from below!</div>
       }
-    } @else{
-      <div class="tasks">Add tasks from below!</div>
-    }
 
+    </div>
   </div>
-</div>
+} @else{
+
+}
+
